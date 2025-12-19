@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comores: Évasion Parfumée entre Volcans et Lagons </title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      template: {
+                          sable: '#FFEDD5', 
+                          ocre: '#F97316',   // Orange Vibrant (Brand Accent)
+                          roche: '#0F172A',  // Bleu Nuit (Brand Dark)
+                          ciel: '#0D9488',   // Vert Lagon (Brand Primary)
+                          bg: '#FFF7ED'      // C'est un blanc cassé chaud, parfait pour la lecture et le contraste.
+                      }
+                  },
+                  fontFamily: {
+                      sans: ['"Plus Jakarta Sans"', 'sans-serif'], // Nouvelle police corps
+                      serif: ['"Outfit"', 'sans-serif'],           // Nouvelle police titres
+                  }
+              }
+          }
+      }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* 2. FORÇAGE DES GRAISSES (Comme sur la Landing Page) */
+        .font-sans { font-weight: 600 !important; }
+        .font-serif { font-weight: 800 !important; }
+
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #F97316; /* ocre */
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+    
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">MyTrip<span class="text-template-ocre">Planner</span></a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée à Moroni, Grande Comore</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Moroni, Cœur Historique et Volcanique</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Les Trésors du Sud de Grande Comore</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Vol vers Mohéli, l'Île Sauvage</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Parc Marin de Mohéli et Rencontre avec les Tortues</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Nature et Culture Mohélienne</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Retour à Grande Comore et Détente</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Départ des Comores</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/header.png" || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021'}');">
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.2em] mb-4 uppercase text-xs font-bold">Feuille de Route</p>
+            <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">COMOROS</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">Comores: Évasion Parfumée entre Volcans et Lagons</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🗓️ Du 24 Décembre 2025 au 1 Janvier 2026</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">💰 3450€</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🛬 14h avec escales depuis Gomes, Malawi</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-16 relative">
+      <div class="text-center mb-16">
+            <h2 class="text-template-ocre font-bold tracking-normal text-4xl mt-2 uppercase font-serif">Votre Roadtrip</h2>
+      </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée à Moroni, Grande Comore</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un long voyage depuis Gomes, vous atterrissez sur l'île principale des Comores. Cette première journée est dédiée à une installation en douceur et à une première immersion dans l'atmosphère unique de l'archipel. Laissez-vous bercer par la brise marine et les premiers parfums d'ylang-ylang, annonciateurs d'une aventure insulaire mémorable.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛬 <strong>Arrivée à l'Aéroport International Prince Saïd Ibrahim (HAH)</strong>: Après votre vol, un transfert vous attendra pour vous conduire à votre hôtel. Profitez du paysage verdoyant qui défile.</li><li>🛏️ <strong>Installation et détente à l'hôtel</strong>: Prenez le temps de vous rafraîchir et de vous installer confortablement. Reposez-vous des fatigues du voyage avant de débuter l'exploration.</li><li>🚶‍♂️ <strong>Première balade découverte à proximité</strong>: Une courte promenade autour de l'hôtel pour s'imprégner de l'ambiance locale et repérer les environs. Observez la vie quotidienne qui s'anime.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ À savoir</p>
+                                <p class="text-gray-700">Le visa est généralement délivré à l'arrivée à l'aéroport de Moroni. Prévoyez des dollars américains ou des euros pour le paiement des frais.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Astuce</p>
+                                <p class="text-gray-700">Hydratez-vous bien après le vol et prenez un repas léger pour vous acclimater au décalage horaire et au climat tropical des Comores.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Moroni, Cœur Historique et Volcanique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur de Moroni, la capitale, où l'histoire et la culture swahilie se rencontrent. Explorez ses marchés animés, ses ruelles labyrinthiques et ressentez la présence majestueuse du volcan Karthala en toile de fond, témoin silencieux de l'île. Une journée riche en découvertes et en saveurs locales vous attend.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Visite de la Médina de Moroni et du Vieux Vendredi</strong>: Perdez-vous dans les ruelles étroites de la vieille ville, admirez l'architecture swahilie et visitez la mosquée du Vieux Vendredi, un emblème historique. C'est un véritable labyrinthe où chaque coin révèle une nouvelle surprise.</li><li>🛍️ <strong>Exploration du Grand Marché de Moroni</strong>: Imprégnez-vous des couleurs et des senteurs du marché. C'est l'endroit idéal pour découvrir les épices locales, les fruits exotiques et l'artisanat comorien, et interagir avec les habitants.</li><li>🌅 <strong>Coucher de soleil sur la côte</strong>: Terminez la journée en admirant un magnifique coucher de soleil depuis une plage proche de Moroni, offrant une vue imprenable sur l'océan Indien. Un moment de pure sérénité.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗣️ Langue</p>
+                                <p class="text-gray-700">Le français et le comorien (shikomor) sont les langues officielles. Quelques mots de comorien seront appréciés par les locaux et faciliteront les échanges.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💰 Monnaie</p>
+                                <p class="text-gray-700">La monnaie locale est le Franc Comorien (KMF). Les euros sont souvent acceptés dans les grands hôtels et pour les services touristiques.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Les Trésors du Sud de Grande Comore</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aventurez-vous vers le sud de Grande Comore pour découvrir des paysages naturels époustouflants. Entre lacs mystérieux et plages de sable noir volcanique, cette journée vous offre un aperçu de la diversité géologique et de la beauté sauvage de l'île. Préparez-vous à des panoramas uniques et des senteurs enivrantes.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>💧 <strong>Découverte du Lac Salé (Dziani Boudé)</strong>: Visitez ce lac de cratère aux eaux turquoise et mystérieuses, entouré de légendes locales. Sa couleur changeante est un spectacle fascinant et photogénique.</li><li>🏖️ <strong>Détente à la Plage de Bouni</strong>: Profitez d'un moment de relaxation sur cette plage de sable noir volcanique, moins fréquentée et offrant une atmosphère paisible. C'est un cadre idéal pour se baigner ou simplement se ressourcer au son des vagues.</li><li>🌿 <strong>Visite d'une plantation d'Ylang-Ylang</strong>: Découvrez le processus de distillation de cette fleur emblématique des Comores, utilisée en parfumerie. L'odeur enivrante est une expérience sensorielle unique et instructive.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚗 Transport</p>
+                                <p class="text-gray-700">Pour cette journée, il est recommandé de louer un taxi à la journée ou d'opter pour un chauffeur privé pour plus de flexibilité et de confort.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Protection</p>
+                                <p class="text-gray-700">N'oubliez pas votre crème solaire, un chapeau et des lunettes de soleil, le soleil tropical est intense et il est essentiel de se protéger.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Vol vers Mohéli, l'Île Sauvage</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Laissez Grande Comore derrière vous pour vous envoler vers Mohéli, la plus petite et la plus sauvage des îles habitées. Préparez-vous à une immersion totale dans une nature préservée, où le temps semble s'arrêter et la tranquillité règne en maître. Une nouvelle facette des Comores s'offre à vous.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✈️ <strong>Vol intérieur Moroni (HAH) - Fomboni (NWA)</strong>: Un court vol vous mènera à Mohéli. Profitez des vues aériennes spectaculaires sur les îles et l'océan.</li><li>🛏️ <strong>Installation à l'hôtel à Fomboni ou ses environs</strong>: Après l'atterrissage, transfert à votre hébergement. Prenez le temps de vous installer et de vous imprégner de l'ambiance décontractée de Mohéli.</li><li>🚶‍♀️ <strong>Balade découverte de Fomboni</strong>: Explorez la petite capitale de Mohéli, son marché local et son port. C'est une ville charmante et authentique, idéale pour une première prise de contact.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧳 Bagages</p>
+                                <p class="text-gray-700">Les vols intérieurs ont souvent des restrictions de poids pour les bagages. Vérifiez avant de partir pour éviter les surprises à l'aéroport.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🐢 Écotourisme</p>
+                                <p class="text-gray-700">Mohéli est réputée pour son engagement en faveur de l'écotourisme et la préservation de sa biodiversité marine et terrestre. Respectez les consignes locales.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Parc Marin de Mohéli et Rencontre avec les Tortues</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur du Parc Marin de Mohéli, un sanctuaire de biodiversité marine. Cette journée est dédiée à l'exploration sous-marine et à la rencontre inoubliable avec les tortues marines, symboles de la richesse naturelle de l'archipel. Une expérience magique et respectueuse de la faune vous attend.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚤 <strong>Excursion en bateau dans le Parc Marin de Mohéli</strong>: Partez en mer pour explorer les îlots et les récifs coralliens du parc. C'est une zone protégée d'une beauté exceptionnelle, abritant une vie marine foisonnante.</li><li> snorkelling <strong>Snorkeling et observation des tortues marines</strong>: Équipez-vous de masque et tuba pour nager dans les eaux cristallines et observer les tortues vertes et imbriquées dans leur habitat naturel. Une expérience inoubliable et respectueuse de la faune.</li><li>🏝️ <strong>Pique-nique sur un îlot désert</strong>: Profitez d'un déjeuner sur une plage isolée, entouré par la nature vierge et le bruit des vagues. Un moment de pure évasion et de déconnexion.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌊 Respect</p>
+                                <p class="text-gray-700">Lors de l'observation des tortues, maintenez une distance respectueuse et ne les touchez jamais pour ne pas les perturber dans leur environnement naturel.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Matériel</p>
+                                <p class="text-gray-700">Pensez à un appareil photo étanche pour immortaliser ces moments sous-marins uniques avec les tortues et les poissons colorés.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nature et Culture Mohélienne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Continuez votre exploration de Mohéli en vous aventurant dans ses terres intérieures. Découvrez des cascades rafraîchissantes et des villages authentiques, où la vie s'écoule au rythme de la nature et des traditions locales. Une journée pour se connecter à l'âme de l'île et à ses habitants chaleureux.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏞️ <strong>Randonnée vers la Cascade de Miringoni</strong>: Une marche agréable à travers la végétation luxuriante vous mènera à cette belle cascade, idéale pour une baignade rafraîchissante. Un petit coin de paradis caché.</li><li>🏘️ <strong>Visite d'un village traditionnel mohélien</strong>: Rencontrez les habitants, découvrez leur mode de vie et partagez un moment d'échange culturel. Une immersion authentique dans la vie insulaire et ses coutumes.</li><li>🌴 <strong>Découverte de la faune et flore locale</strong>: Observez les roussettes (chauves-souris géantes) et d'autres espèces endémiques dans leur environnement naturel. Un aperçu de la biodiversité unique de Mohéli.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👟 Chaussures</p>
+                                <p class="text-gray-700">Prévoyez des chaussures de marche confortables pour la randonnée et des sandales pour la plage. Le terrain peut être varié.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenirs</p>
+                                <p class="text-gray-700">Les artisans locaux proposent souvent des produits uniques et faits main. C'est une belle occasion de ramener un souvenir authentique de Mohéli.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Retour à Grande Comore et Détente</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après l'aventure mohélienne, retournez à Grande Comore pour une journée plus relaxante. Profitez des dernières heures pour flâner, faire quelques achats de souvenirs ou simplement vous détendre au bord de l'océan, en savourant les derniers instants de votre séjour. Une transition douce avant le départ.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✈️ <strong>Vol intérieur Fomboni (NWA) - Moroni (HAH)</strong>: Reprenez un vol court pour retourner sur l'île principale. Profitez une dernière fois des vues aériennes.</li><li>🛍️ <strong>Achats de souvenirs au marché de Volo Volo</strong>: Profitez de l'après-midi pour acheter des épices, des tissus colorés ou des objets artisanaux au marché de Volo Volo à Moroni. Un lieu idéal pour trouver des cadeaux.</li><li>💆‍♀️ <strong>Détente sur une plage de Moroni</strong>: Passez un moment de farniente sur une plage comme Itsandra ou Galawa, pour vous reposer avant le départ. Profitez du soleil et de la mer.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌶️ Épices</p>
+                                <p class="text-gray-700">Les Comores sont réputées pour leurs épices de qualité. N'hésitez pas à en acheter au marché pour prolonger les saveurs du voyage une fois rentré chez vous.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📞 Confirmation</p>
+                                <p class="text-gray-700">Confirmez votre vol international de retour et organisez votre transfert pour l'aéroport le lendemain matin. Anticipez pour un départ serein.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Départ des Comores</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">C'est le dernier jour de votre voyage aux Comores. Après un petit-déjeuner paisible, il sera temps de dire au revoir à cet archipel enchanteur, emportant avec vous des souvenirs inoubliables de ses paysages, de sa culture et de la gentillesse de ses habitants. Un voyage qui restera gravé dans votre mémoire.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>☕ <strong>Petit-déjeuner à l'hôtel</strong>: Profitez d'un dernier petit-déjeuner comorien, savourant les saveurs locales une dernière fois. Un moment de calme avant le départ.</li><li>🛬 <strong>Transfert à l'aéroport international Prince Saïd Ibrahim (HAH)</strong>: Un véhicule vous conduira à l'aéroport pour votre vol de retour. Assurez-vous d'avoir tous vos documents de voyage.</li><li>👋 <strong>Départ des Comores</strong>: Enregistrement et embarquement pour votre vol, la tête pleine de souvenirs et le cœur rempli d'expériences uniques. À bientôt, Comores!</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Comoros-9a5uhd2q9l57bj7/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Heure</p>
+                                <p class="text-gray-700">Arrivez à l'aéroport au moins 3 heures avant votre vol international pour les formalités d'enregistrement et de sécurité. Mieux vaut être en avance.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Vol</p>
+                                <p class="text-gray-700">Vérifiez les dernières informations de votre vol (horaires, porte d'embarquement) avant de partir de l'hôtel pour éviter tout imprévu.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+    </section>
+
+    <section id="pratique" class="bg-white border-t border-gray-200 pt-12 pb-12 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>💴</span> Budget
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget vol: </strong>1500€/pers (Vol A/R Gomes-Moroni avec escales en classe économique)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget transports: </strong>800€/pers (Vols intérieurs A/R Grande Comore-Mohéli, taxis, transferts aéroport)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget repas: </strong>400€/pers (8 jours, repas dans des restaurants locaux et hôtels de gamme moyenne)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget logement: </strong>600€/pers (7 nuits en hôtel 3 étoiles, base chambre double)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget activités: </strong>150€/pers (Excursions, entrées parcs, guides locaux)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Les périodes idéales pour ce séjour sont les mois de mai à novembre, pendant la saison sèche. Décembre et janvier marquent le début de la saison des pluies, mais le temps reste souvent agréable avec des averses tropicales courtes.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Infos pratiques
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">👥 Population: Environ 850 000 habitants (2023), majoritairement jeunes et de confession musulmane. L'accueil est généralement chaleureux et respectueux.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🏝️ Pays: Archipel volcanique de l'océan Indien, surnommé "l'île aux parfums" en raison de sa production d'ylang-ylang, de vanille et de girofle. Une destination authentique et préservée.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🐟 Insolite: Le cœlacanthe, poisson préhistorique que l'on croyait disparu, a été redécouvert au large des Comores en 1938. C'est une espèce emblématique de la biodiversité locale.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🌋 Insolite: Le volcan Karthala, situé sur Grande Comore, est l'un des volcans actifs les plus grands du monde par son cratère. Ses éruptions sont surveillées de près.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>🔗</span> Liens Utiles
+                </h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://mytripplanner-dotfr.github.io/Comoros-9a5uhd2q9l57bj7/map.html" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🗺️ Carte Interactive</strong></a></li>
+                    
+                        <li><a href="https://www.comores-online.com/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>📘 Comores Online</strong></a></li>
+                    
+                        <li><a href="https://www.accuweather.com/fr/km/comoros-weather" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🌤️ AccuWeather Comores</strong></a></li>
+                    
+                        <li><a href="https://www.abaviation.km/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>✈️ AB Aviation</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-serif text-lg text-template-roche mb-2 font-bold">
+                MyTrip<span class="text-template-ocre">Planner</span>
+            </p>
+
+                <div class="flex justify-center gap-4 text-[10px] md:text-xs text-slate-500 mb-4 font-semibold">
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">CGU</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Confidentialité</a>
+                </div>
+
+            <p class="text-[10px] text-gray-400 mb-2">
+                &copy; 2025 MyTripPlanner. Tous droits réservés.
+            </p>
+
+            <div class="flex justify-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest px-2 py-0.5 border border-gray-200 rounded-full inline-block">
+                    🤖 Contenu généré par IA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion Scroll & Menu
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+
+        // Active Link Highlighter
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('div[id^="jour-"], section#pratique').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
